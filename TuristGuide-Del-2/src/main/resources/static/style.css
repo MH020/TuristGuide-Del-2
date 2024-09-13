@@ -1,0 +1,9 @@
+p {
+    color : darkslateblue;
+}
+
+.rainbow-text {
+    background: linear-gradient(to left, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    color: transparent;
+}
