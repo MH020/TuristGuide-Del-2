@@ -1,20 +1,14 @@
 <!-- attractionList.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<style>
-    table, th, td {
-        border:1px solid black;
-    }
-</style>
 
 <head>
     <!DOCTYPE html>
-    <html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>Tourist Guide</title>
-        <link rel="stylesheet" href="../static/style.css">
+        <link th:href= "@{/style.css}" rel="stylesheet">
     </head>
     <body>
     <nav>
@@ -53,7 +47,6 @@
     </footer>
 
     </body>
-    </html>
 <!--
 Opret en velkomstside attractionList.html, der vises med flg. endpoint: http://localhost:80801
 Teksten på velkomstsiden skal som minimum:
@@ -76,5 +69,4 @@ Brug som minimum disse tags2:
 • img3
 • ul or ol
 -->
-</head>
 </html>
