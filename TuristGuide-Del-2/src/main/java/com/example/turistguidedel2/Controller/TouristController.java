@@ -19,14 +19,14 @@ public class TouristController {
     }
 
     @GetMapping
-    public ResponseEntity<List<TouristAttraction>> getAllTouristAttractions(){
+    public String getAllTouristAttractions(){ //ResponseEntity<List<TouristAttraction>> getAllTouristAttractions(){
        List<TouristAttraction> attractions = touristService.getAllTouristAttractions();
-        return new ResponseEntity<>(attractions, HttpStatus.OK);
+        return "attractions"; //new ResponseEntity<>(attractions, HttpStatus.OK);
     }
     @GetMapping("/{name}")
-    public ResponseEntity<TouristAttraction> getTouristAttractionByName(@PathVariable String name){
+    public String getTouristAttractionByName(@PathVariable String name){
         TouristAttraction ta = touristService.getTouristAttractionByName(name);
-        return new ResponseEntity<>(ta,HttpStatus.OK);
+        return "name";
     }
     
     @PostMapping("/add")
