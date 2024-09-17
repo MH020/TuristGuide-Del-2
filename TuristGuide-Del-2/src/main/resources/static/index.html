@@ -1,6 +1,13 @@
 <!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
+
+<style>
+    table, th, td {
+        border:1px solid black;
+    }
+</style>
+
 <head>
     <!DOCTYPE html>
     <html lang="en">
@@ -20,10 +27,26 @@
     <h1 class="rainbow-text">Welcome</h1>
     <p class="rainbow-text">You can use this site for tourist guides :))</p>
     <img src="https://t4.ftcdn.net/jpg/00/30/42/27/360_F_30422752_w1SUKUMnnAzhgYSNd01A1oXSYncJizkU.jpg" alt="Tourist Attraction">
-    <ul>
-        <li><a href="/attractions/Tivoli">Tivoli</a></li>
-        <li><a href="/attractions/Den Blå Plant">Den Blå Plant</a></li>
-    </ul>
+
+    <table style="width:100%">
+        <tr>
+            <th>Attraction</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><a href="/attractions/Tivoli">Tivoli</a></td>
+            <td>The 2nd oldest amusement park in the world</td>
+        </tr>
+        <tr>
+            <td><a href="/attractions/Den Blå Plant">Den Blå Plant</a></td>
+            <td> An aquarium with wonderful fish </td>
+        </tr>
+        <tr>
+            <td><a href="/attractions/Rundetårn">Rundetårn</a></td>
+            <td> Round building </td>
+        </tr>
+    </table>
+
     <footer>
         <p>Contact: 12345678</p>
     </footer>
