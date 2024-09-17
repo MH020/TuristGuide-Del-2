@@ -1,7 +1,5 @@
 package com.example.turistguidedel2.Controller;
 import com.example.turistguidedel2.Service.TouristService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -27,7 +25,7 @@ public class TouristController {
     @GetMapping("/{name}")
     public String getTouristAttractionByName(@PathVariable String name, Model model){
         TouristAttraction ta = touristService.getTouristAttractionByName(name);
-        return "name";
+        return "tags";
     }
     
     @PostMapping("/add")
