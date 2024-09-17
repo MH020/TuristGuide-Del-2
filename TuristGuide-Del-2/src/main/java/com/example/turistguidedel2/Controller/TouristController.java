@@ -3,6 +3,7 @@ import com.example.turistguidedel2.Service.TouristService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.example.turistguidedel2.Model.TouristAttraction;
 import java.util.List;
@@ -19,30 +20,31 @@ public class TouristController {
     }
 
     @GetMapping
-    public String getAllTouristAttractions(){ //ResponseEntity<List<TouristAttraction>> getAllTouristAttractions(){
+    public String getAllTouristAttractions(Model model){ //ResponseEntity<List<TouristAttraction>> getAllTouristAttractions(){
        List<TouristAttraction> attractions = touristService.getAllTouristAttractions();
         return "attractions"; //new ResponseEntity<>(attractions, HttpStatus.OK);
     }
     @GetMapping("/{name}")
-    public String getTouristAttractionByName(@PathVariable String name){
+    public String getTouristAttractionByName(@PathVariable String name, Model model){
         TouristAttraction ta = touristService.getTouristAttractionByName(name);
         return "name";
     }
     
     @PostMapping("/add")
-    public ResponseEntity<TouristAttraction> getTouristAttraction(@RequestBody TouristAttraction touristAttraction){
+    public String getTouristAttraction(@RequestBody TouristAttraction touristAttraction, Model model){
         touristService.addTouristAttraction(touristAttraction);
-      return new ResponseEntity<>(touristAttraction, HttpStatus.CREATED);
+      return "add";
     }
     @PostMapping("/update")
-    public ResponseEntity<TouristAttraction> updateTouristAttraction(@RequestBody TouristAttraction touristAttraction){
+    public String updateTouristAttraction(@RequestBody TouristAttraction touristAttraction, Model model){
         touristService.updateTouristAttraction(touristAttraction);
-        return new ResponseEntity<>(touristAttraction, HttpStatus.OK);
+        return "update";
     }
+
     @DeleteMapping("/delete/{index}")
-    public ResponseEntity<TouristAttraction> deleteTouristAttraction(@PathVariable int index){
+    public String deleteTouristAttraction(@PathVariable int index, Model model){
         touristService.deleteTouristAttraction(index);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return "delete";
     }
 
 }
