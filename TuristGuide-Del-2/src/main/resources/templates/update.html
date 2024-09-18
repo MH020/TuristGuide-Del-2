@@ -1,10 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Add Attraction</title>
+    <link th:href= "@{/style.css}" rel="stylesheet">
 </head>
 <body>
+<h1>Update Attraction</h1>
+<div>
+    <form th:action="@{/attractions/update}" th:method="post" th:object="${attraction}" autocomplete="off">
+        <div>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description">
+            </div>
+            <div>
+                <label for="city">City:</label>
+                <select id="city" name="city" th:field="*{city}">
+                    <option th:each="type : ${city}" th:value="$city" th:text="${type.displayName}">City</option>
+                </select>
+            </div>
+            <div>
+                <div th:each="tag : ${tags}">
+                    <input type="checkbox"
+                           th:field="*{tags}" th:value="${tag}"
+                           th:id="${tag}">
+                    <label class="form-check-label"
+                           th:for="${tag}" th:text="${tag.name}" </label>
+                </div>
+            </div>
+            <div>
+                <button type="submit">Save</button>
+            </div>
+        </div>
+    </form>
+
+    <footer class="footer">
+        <a href="/" class="back-link">Back to Attractions</a>
+    </footer>
+</div>
 
 </body>
 </html>
