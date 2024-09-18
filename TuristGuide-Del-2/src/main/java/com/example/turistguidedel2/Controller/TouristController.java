@@ -38,7 +38,7 @@ public class TouristController {
     @PostMapping("/add")
     public String getTouristAttraction(@RequestBody TouristAttraction touristAttraction, Model model){
         touristService.addTouristAttraction(touristAttraction);
-      return "add";
+      return "redirect:/attractions";
     }
     @PostMapping("/update")
     public String updateTouristAttraction(@RequestBody TouristAttraction touristAttraction, Model model){

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--suppress ALL -->
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -8,40 +9,31 @@
 </head>
 <body>
 <h1>Update Attraction</h1>
-<div>
+
     <form th:action="@{/attractions/update}" th:method="post" th:object="${attraction}" autocomplete="off">
-        <div>
-            <div class="form-group">
+
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div>
+                <input type="text" id="name" name="name" required> <br>
+
                 <label for="description">Description:</label>
-                <input type="text" id="description" name="description">
-            </div>
-            <div>
+                <input type="text" id="description" name="description"> <br>
+
                 <label for="city">City:</label>
                 <input type="text" id="city" name="city" value="" readonly><br><br>
-            </div>
-            <div>
+
                 <div th:each="tag : ${tags}">
                     <input type="checkbox"
                            th:field="*{tags}" th:value="${tag}"
                            th:id="${tag}">
                     <label class="form-check-label"
-                           th:for="${tag}" th:text="${tag.name}" </label>
-                </div>
-            </div>
-            <div>
+                           th:for="${tag}" th:text="${tag.name}"> </label> <br> </div>
+
                 <button type="submit">Save</button>
-            </div>
-        </div>
     </form>
 
     <footer class="footer">
-        <a href="/" class="back-link">Back to Attractions</a>
+        <a href="http://localhost:8080/attractions">Back to Attractions</a>
     </footer>
-</div>
 
 </body>
 </html>
