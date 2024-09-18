@@ -21,9 +21,7 @@
             </div>
             <div>
                 <label for="city">City:</label>
-                <select id="city" name="city" th:field="*{city}">
-                    <option th:each="type : ${city}" th:value="$city" th:text="${type.displayName}">City</option>
-                </select>
+                <input type="text" id="city" name="city" value="" readonly><br><br>
             </div>
             <div>
                 <div th:each="tag : ${tags}">
