@@ -34,7 +34,7 @@
             <td> <em> placeholder: city </em> </td>
 
             <td>
-                <a th:href = "@{/attractions/ ${touristAttraction.getName()}}"> tags </a>
+                <a th:href = "@{/attractions/{name} (name= ${touristAttraction.getName()})}"> tags </a>
                 <button>edit</button>
                 <button>delete</button>
             </td>

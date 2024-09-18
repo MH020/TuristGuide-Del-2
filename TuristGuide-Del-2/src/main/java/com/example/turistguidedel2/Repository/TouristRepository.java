@@ -30,6 +30,8 @@ public class TouristRepository {
         touristAttractions.add(attraction2);
         TouristAttraction attraction3 = new TouristAttraction("Big Ben", "Big Ben is the nickname for the Great Bell of the clock at the north end of the Palace of Westminster in London, England.", "London", tags);
         touristAttractions.add(attraction3);
+        TouristAttraction attraction4 = new TouristAttraction("Tivoli", "test.", "London", tags);
+        touristAttractions.add(attraction4);
     }
 
     //create. add a tourist attraction to the list
