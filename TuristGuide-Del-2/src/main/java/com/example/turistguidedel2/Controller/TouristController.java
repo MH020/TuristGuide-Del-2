@@ -20,9 +20,9 @@ public class TouristController {
     }
 
     @GetMapping
-    public String getAllTouristAttractions(Model model){ //ResponseEntity<List<TouristAttraction>> getAllTouristAttractions(){
-       List<TouristAttraction> attractions = touristService.getAllTouristAttractions();
-        return "attractions"; //new ResponseEntity<>(attractions, HttpStatus.OK);
+    public String getAllTouristAttractions(Model model){
+       model.addAttribute("touristAttractions", touristService.getAllTouristAttractions());
+        return "attractions";
     }
     @GetMapping("/{name}")
     public String getTouristAttractionByName(@PathVariable String name, Model model){
