@@ -39,18 +39,23 @@ public class TouristController {
     @PostMapping("/add")
     public String getTouristAttraction(@RequestBody TouristAttraction touristAttraction, Model model){
         touristService.addTouristAttraction(touristAttraction);
-      return "add";
+      return " redirect:/attractions";
     }
+
+    @PostMapping("/save")
+    public String saveTouristAttractions @ModelAttribute("attractions") ;
+
+
     @PostMapping("/update")
     public String updateTouristAttraction(@RequestBody TouristAttraction touristAttraction, Model model){
         touristService.updateTouristAttraction(touristAttraction);
-        return "update";
+        return "redirect:/attractions";
     }
 
     @DeleteMapping("/delete/{index}")
-    public String deleteTouristAttraction(@PathVariable int index, Model model){
+    public String deleteTouristAttraction(@PathVariable int index, Model model) {
         touristService.deleteTouristAttraction(index);
-        return "delete";
+        return "redirect:/attractions";
     }
 
 }

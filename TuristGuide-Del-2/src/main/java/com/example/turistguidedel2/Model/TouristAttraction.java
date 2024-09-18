@@ -2,7 +2,7 @@ package com.example.turistguidedel2.Model;
 
 import java.util.ArrayList;
 
-public class TouristAttraction {
+public class 'TouristAttraction {
     private String name;
     private String description;
     private String city;
@@ -26,6 +26,10 @@ public class TouristAttraction {
     }
     public ArrayList<String> getTags() {
         return tags;
+    }
+
+    public TouristAttraction(){
+
     }
 
     //constructor
