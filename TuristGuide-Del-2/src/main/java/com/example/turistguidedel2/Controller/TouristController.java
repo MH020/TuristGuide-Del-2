@@ -28,6 +28,12 @@ public class TouristController {
         TouristAttraction ta = touristService.getTouristAttractionByName(name);
         return "tags";
     }
+    @GetMapping("/{name}/tags")
+    public String getTouristAttractionByTags(@PathVariable String name, Model model){
+        model.addAttribute("tags",touristService.getTouristAttractionByName(name).getTags());
+        model.addAttribute("name",name);
+        return "tags";
+    }
     
     @PostMapping("/add")
     public String getTouristAttraction(@RequestBody TouristAttraction touristAttraction, Model model){
