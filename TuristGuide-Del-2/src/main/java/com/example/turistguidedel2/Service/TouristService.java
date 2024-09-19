@@ -44,5 +44,14 @@ public class TouristService {
     //get tourist attraction tags
     public List<String> getTouristAttractionTags(String name){
         return repository.getTouristAttractionByName(name).getTags();
+
+    public void saveTouristAttractions(List<TouristAttraction> touristAttractions){
+        this.touristAttractions.addAll(touristAttractions);
+        for (TouristAttraction attraction : touristAttractions) {
+            if (attraction.getName().equals(name)) {
+                return attraction;
+            }
+        }
+        return null;
     }
 }

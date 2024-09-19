@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--suppress ALL -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Add Attraction</title>
+    <link th:href= "@{/style.css}" rel="stylesheet">
 </head>
 <body>
+<h1>Update Attraction</h1>
+
+    <form th:action="@{/attractions/update}" th:method="post" th:object="${attraction}" autocomplete="off">
+
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required> <br>
+
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description"> <br>
+
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" value="" readonly><br><br>
+
+                <div th:each="tag : ${tags}">
+                    <input type="checkbox"
+                           th:field="*{tags}" th:value="${tag}"
+                           th:id="${tag}">
+                    <label class="form-check-label"
+                           th:for="${tag}" th:text="${tag.name}"> </label> <br> </div>
+
+                <button type="submit">Save</button>
+    </form>
+
+    <footer class="footer">
+        <a href="http://localhost:8080/attractions">Back to Attractions</a>
+    </footer>
 
 </body>
 </html>

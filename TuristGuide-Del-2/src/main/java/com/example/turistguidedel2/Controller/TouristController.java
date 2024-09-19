@@ -1,7 +1,5 @@
 package com.example.turistguidedel2.Controller;
 import com.example.turistguidedel2.Service.TouristService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,14 +18,15 @@ public class TouristController {
     }
 
     @GetMapping
-    public String getAllTouristAttractions(Model model){
-       model.addAttribute("touristAttractions", touristService.getAllTouristAttractions());
-        return "attractions";
+    public String getAllTouristAttractions(Model model){ //ResponseEntity<List<TouristAttraction>> getAllTouristAttractions(){
+       List<TouristAttraction> attractions = touristService.getAllTouristAttractions();
+       model.addAttribute("allTouristAttractions", attractions);
+        return "attractionList"; 
     }
     @GetMapping("/{name}")
     public String getTouristAttractionByName(@PathVariable String name, Model model){
-        model.addAttribute("tourisAttractionName",touristService.getTouristAttractionByName(name));
-        return "name";
+        model.addAttribute("tourisAttractionName",touristService.getTouristAttractionByName(name).getName());
+        return "test";
     }
     @GetMapping("/{name}/tags")
     public String getTouristAttractionByTags(@PathVariable String name, Model model){
@@ -35,7 +34,6 @@ public class TouristController {
         model.addAttribute("name",name);
         return "tags";
     }
-    
     @GetMapping("/add")
     public String addTouristAttraction(Model model){
         model.addAttribute("TouristAttraction", new TouristAttraction());
@@ -52,13 +50,13 @@ public class TouristController {
 
 
     @PostMapping("/update")
-    public String updateTouristAttraction(@RequestBody TouristAttraction touristAttraction, Model model){
+    public String updateTouristAttraction(@ModelAttribute TouristAttraction touristAttraction){
         touristService.updateTouristAttraction(touristAttraction);
         return "redirect:/attractions";
     }
 
     @DeleteMapping("/delete/{index}")
-    public String deleteTouristAttraction(@PathVariable int index, Model model) {
+    public String deleteTouristAttraction(@ModelAttribute int index) {
         touristService.deleteTouristAttraction(index);
         return "redirect:/attractions";
     }
