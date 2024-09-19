@@ -10,7 +10,7 @@
 <body>
 <h1>Add Attraction</h1>
 
-    <form th:action="@{/attractions/add}" th:method="post" th:object="${attraction}" autocomplete="off">
+    <form th:action="@{/attractions/save}" th:method="post" th:object="${attraction}" autocomplete="off">
 
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required> <br>
