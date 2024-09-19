@@ -1,18 +1,19 @@
-<!-- index.html -->
+<!-- attractionList.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
 <head>
     <!DOCTYPE html>
-    <html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>Tourist Guide</title>
-        <link rel="stylesheet" href="style.css">
+        <link th:href= "@{/style.css}" rel="stylesheet">
     </head>
     <body>
     <nav>
         <ul>
-            <li><a href="/">Home</a></li>
+            <li><a href="/static">Home</a></li>
             <li><a href="/attractions">Attractions</a></li>
             <li><a href="/contact">Contact</a></li>
         </ul>
@@ -20,19 +21,41 @@
     <h1 class="rainbow-text">Welcome</h1>
     <p class="rainbow-text">You can use this site for tourist guides :))</p>
     <img src="https://t4.ftcdn.net/jpg/00/30/42/27/360_F_30422752_w1SUKUMnnAzhgYSNd01A1oXSYncJizkU.jpg" alt="Tourist Attraction">
-    <ul>
-        <li><a href="/attractions/Tivoli">Tivoli</a></li>
-        <li><a href="/attractions/Den Blå Plant">Den Blå Plant</a></li>
-    </ul>
+
+    <table >
+        <th>Attraction</th>
+        <th>Description</th>
+        <th>City</th>
+        <th>Tags</th>
+
+        <tr th:each="touristAttraction : ${allTouristAttractions}">
+            <td th:text="${touristAttraction.getName()}"/>
+            <td th:text="${touristAttraction.getDescription()}"/>
+            <td> <em> placeholder: city </em> </td>
+
+            <td>
+                <a th:href = "@{/attractions/{name} (name= ${touristAttraction.getName()})}"> tags </a>
+                <button>edit</button>
+                <button>delete</button>
+            </td>
+        </tr>
+
+    </table>
+
+    <form method="POST" action="add.html">
+        <button type="submit">Add Attraction</button>
+    </form>
+
     <footer>
         <p>Contact: 12345678</p>
     </footer>
+
     </body>
-    </html>
+</html>
 <!--
-Opret en velkomstside index.html, der vises med flg. endpoint: http://localhost:80801
+Opret en velkomstside attractionList.html, der vises med flg. endpoint: http://localhost:80801
 Teksten på velkomstsiden skal som minimum:
-• Beskrive turistguiden - hvad kan den bruges til. Dækker den f.eks. en enkelt by, hele
+• Beskrive turistgui2den - hvad kan den bruges til. Dækker den f.eks. en enkelt by, hele
 Danmark, eller er det en global bucket liste? Er den rettet imod en bestemt
 målgruppe (f.eks. singler eller naturelskere) eller andre relevante informationer.
 • Vise en liste af udvalgte turistattraktioner (f.eks. via links til eksterne sites)
@@ -42,7 +65,6 @@ målgruppe (f.eks. singler eller naturelskere) eller andre relevante information
 • En footer med kontaktinfo
 Sidens layout skal formateres med CSS for at se indbydende ud.
 
-
 Brug som minimum disse tags2:
 • head
 • title
@@ -51,5 +73,3 @@ Brug som minimum disse tags2:
 • img3
 • ul or ol
 -->
-</head>
-</html>
