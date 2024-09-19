@@ -1,6 +1,7 @@
 package com.example.turistguidedel2.Model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TouristAttraction {
     private String name;
@@ -35,5 +36,13 @@ public class TouristAttraction {
         this.description = description;
         this.city = city;
         this.tags = tags;
+    }
+
+    public List<String> getTags(){
+        return tags;
+    }
+
+    public String getCity(){
+        return city;
     }
 }

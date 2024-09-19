@@ -34,8 +34,8 @@ public class TouristService {
         repository.updateTouristAttraction(touristAttraction.getName(), touristAttraction.getDescription());
     }
     //delete. simply remove the object at the index given
-    public void deleteTouristAttraction(int index){
-        repository.deleteTouristAttraction(index);
+    public void deleteTouristAttraction(String name){
+        repository.deleteTouristAttraction(name);
     }
 
     //get tourist attraction by name
