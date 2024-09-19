@@ -19,6 +19,7 @@
                 <input type="text" id="description" name="description"> <br>
 
                 <label for="city">City:</label>
+
                 <select id="city" name="city" th:field="*{city}">
                     <option th:each="type : ${city}" th:value="city" th:text="${type.displayName}">City</option>
                 </select>
@@ -30,9 +31,7 @@
                     <label class="form-check-label"
                            th:for="${tags}" > </label> <br> </div>
 
-        <form method="POST" action="/attractions/save">
             <button type="submit">Save</button>
-        </form>
     </form>
 
     <footer class="footer">

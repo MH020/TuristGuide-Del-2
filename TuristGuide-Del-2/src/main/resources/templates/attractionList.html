@@ -26,9 +26,9 @@
             <td>
                 <a th:href = "@{/attractions/{name}/tags(name=${touristAttraction.getName()})}"> Tags </a> <br>
 
-                <a th:href="@{/attractions/update(name=${touristAttraction.getName()})}">Update</a> <br>
+                <a th:href="@{/attractions/edit(name=${touristAttraction.getName()})}">Update</a> <br>
 
-                <a th:href="@{/attractions/{name}/edit(name=${touristAttraction.getName()})}">Delete</a> <br>
+                <a th:href="@{/attractions/delete/{index}(name=${touristAttraction.getName()})}">Delete</a> <br>
             </td>
         </tr>
     </table>
