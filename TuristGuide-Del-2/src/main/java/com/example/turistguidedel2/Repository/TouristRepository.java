@@ -9,7 +9,7 @@ import java.util.List;
 public class TouristRepository {
     // this is a list of tourist attractions that will be used to store the tourist attractions
     private  ArrayList<TouristAttraction> touristAttractions = new ArrayList<>(); //Using a map (name, desc) could be beneficial.
-
+    private ArrayList<String> tags = new ArrayList<String>();
     //trying to implitment the CRUD operations as i understand them:
 
     public TouristRepository() {
@@ -17,7 +17,6 @@ public class TouristRepository {
     }
 
     private void populateAttractions() {
-        ArrayList<String> tags = new ArrayList<String>();
         tags.add("Historical");
         tags.add("Museum");
         tags.add("Art");
@@ -68,8 +67,16 @@ public class TouristRepository {
         }
         return null;
     }
+    //get tagsList
+    public ArrayList<String> getTags() {
+        return tags;
+    }
 
 
+public void saveTouristAttractions(TouristAttraction touristAttraction){
+    touristAttractions.add(touristAttraction);
+
+}
 
 }
 
