@@ -28,6 +28,10 @@ public class TouristAttraction {
         return tags;
     }
 
+    public TouristAttraction(){
+
+    }
+
     //constructor
     public TouristAttraction(String name, String description, String city, ArrayList<String> tags) {
         this.name = name;
