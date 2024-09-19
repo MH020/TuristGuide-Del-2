@@ -52,7 +52,7 @@ public class TouristController {
         return "redirect:/attractions";
     }
 
-    @DeleteMapping("/delete/{index}")
+    @PostMapping("/delete/{index}")
     public String deleteTouristAttraction(@ModelAttribute int index) {
         touristService.deleteTouristAttraction(index);
         return "redirect:/attractions";
