@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Tags</h1>
-<h1 th:text="${attractionName}"></h1>
+<h2 th:text="${attractionName}"></h2>
 
 <div th:each="att : ${attractions}">
     <p th:if="${att.getName() == attractionName}" th:text="${att.getTags()}"></p>

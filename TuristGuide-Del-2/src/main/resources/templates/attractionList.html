@@ -2,9 +2,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-
-<head>
-    <!DOCTYPE html>
     <head>
         <meta charset="UTF-8">
         <title>Tourist Guide</title>
@@ -27,10 +24,11 @@
             <td> <em> placeholder: city </em> </td>
 
             <td>
-                <!-- <a th:href = "@{/attractions/{name}/tags} (name= ${touristAttraction.getName()})}"> tags </a> -->
-                    <a href="tags.html">Tags</a> <br>
-                    <a href="update.html">Update</a> <br>
-                    <a href="delete.html">Delete</a> <br>
+                <a th:href = "@{/attractions/{name}/tags(name=${touristAttraction.getName()})}"> Tags </a> <br>
+
+                <a th:href="@{/attractions/update(name=${touristAttraction.getName()})}">Update</a> <br>
+
+                <a th:href="@{/attractions/delete/{index}(name=${touristAttraction.getName()})}">Delete</a> <br>
             </td>
         </tr>
     </table>
