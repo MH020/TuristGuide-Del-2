@@ -51,5 +51,5 @@ public class TouristController {
         touristService.deleteTouristAttraction(index);
         return "redirect:/attractions";
     }
-
+//still up to date 
 }
