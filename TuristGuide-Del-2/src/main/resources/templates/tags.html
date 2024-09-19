@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Tags</title>
 </head>
 <body>
+<h1>Tags</h1>
+<h2 th:text="${attractionName}"></h2>
+
+<div th:each="att : ${attractions}">
+    <p th:if="${att.getName() == attractionName}" th:text="${att.getTags()}"></p>
+</div>
+
+<!--<p th:if="${attraction.getName() == attractionName}" th:text="${attraction.getTags()}"></p>    -->
+
+<footer class="footer">
+    <form method="get" action="attractionList.html">
+        <button type="submit">Back to attractions</button>
+    </form>
+</footer>
 
 </body>
 </html>

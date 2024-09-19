@@ -2,31 +2,21 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-
-<head>
-    <!DOCTYPE html>
     <head>
         <meta charset="UTF-8">
         <title>Tourist Guide</title>
         <link th:href= "@{/style.css}" rel="stylesheet">
     </head>
     <body>
-    <nav>
-        <ul>
-            <li><a href="/static">Home</a></li>
-            <li><a href="/attractions">Attractions</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-    </nav>
+
     <h1 class="rainbow-text">Welcome</h1>
     <p class="rainbow-text">You can use this site for tourist guides :))</p>
     <img src="https://t4.ftcdn.net/jpg/00/30/42/27/360_F_30422752_w1SUKUMnnAzhgYSNd01A1oXSYncJizkU.jpg" alt="Tourist Attraction">
 
-    <table >
+    <table>
         <th>Attraction</th>
         <th>Description</th>
         <th>City</th>
-        <th>Tags</th>
 
         <tr th:each="touristAttraction : ${allTouristAttractions}">
             <td th:text="${touristAttraction.getName()}"/>
@@ -34,12 +24,13 @@
             <td> <em> placeholder: city </em> </td>
 
             <td>
-                <a th:href = "@{/attractions/{name} (name= ${touristAttraction.getName()})}"> tags </a>
-                <button>edit</button>
-                <button>delete</button>
+                <a th:href = "@{/attractions/{name}/tags(name=${touristAttraction.getName()})}"> Tags </a> <br>
+
+                <a th:href="@{/attractions/update(name=${touristAttraction.getName()})}">Update</a> <br>
+
+                <a th:href="@{/attractions/{name}/edit(name=${touristAttraction.getName()})}">Delete</a> <br>
             </td>
         </tr>
-
     </table>
 
     <form method="POST" action="add.html">
