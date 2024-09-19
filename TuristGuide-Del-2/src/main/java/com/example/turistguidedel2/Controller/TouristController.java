@@ -36,14 +36,14 @@ public class TouristController {
     }
     
     @PostMapping("/add")
-    public String getTouristAttraction(@ModelAttribute("TouristAttraction touristAttraction")){
+    public String getTouristAttraction(@ModelAttribute(TouristAttraction touristAttraction){
         touristService.addTouristAttraction(touristAttraction);
         return "redirect:/attractions";
     }
 
     @PostMapping("/save")
-    public String saveTouristAttractions(@ModelAttribute("attractions") List<TouristAttraction> touristAttractions){
-        touristService.saveTouristAttractions(touristAttractions);
+    public String saveTouristAttractions(@ModelAttribute TouristAttraction touristAttraction){
+        touristService.saveTouristAttractions(touristAttraction);
         return "redirect:/attractions";
     }
 

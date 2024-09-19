@@ -69,14 +69,9 @@ public class TouristRepository {
         return null;
     }
 
-public void saveTouristAttractions(List<TouristAttraction> touristAttractions){
-    this.touristAttractions.addAll(touristAttractions);
-    for (TouristAttraction attraction : touristAttractions) {
-        if (attraction.getName().equals(name)) {
-            return attraction;
-        }
-    }
-    return null;
+public void saveTouristAttractions(TouristAttraction touristAttraction){
+    touristAttractions.add(touristAttraction);
+
 }
 
 }
