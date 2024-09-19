@@ -25,25 +25,40 @@ public class TouristController {
     }
     @GetMapping("/{name}")
     public String getTouristAttractionByName(@PathVariable String name, Model model){
-        TouristAttraction ta = touristService.getTouristAttractionByName(name);
+        model.addAttribute("tourisAttractionName",touristService.getTouristAttractionByName(name).getName());
+        return "test";
+    }
+    @GetMapping("/{name}/tags")
+    public String getTouristAttractionByTags(@PathVariable String name, Model model){
+        model.addAttribute("tags",touristService.getTouristAttractionByName(name).getTags());
+        model.addAttribute("name",name);
         return "tags";
     }
     
     @PostMapping("/add")
     public String getTouristAttraction(@RequestBody TouristAttraction touristAttraction, Model model){
         touristService.addTouristAttraction(touristAttraction);
-      return "add";
+        return "redirect:/attractions";
     }
+
+    @PostMapping("/save")
+    public String saveTouristAttractions;@ModelAttribute("attractions");
+    public String saveTouristAttractions(@ModelAttribute("attractions") List<TouristAttraction> touristAttractions){
+        touristService.saveTouristAttractions(touristAttractions);
+        return "redirect:/attractions";
+    }
+
+
     @PostMapping("/update")
     public String updateTouristAttraction(@RequestBody TouristAttraction touristAttraction, Model model){
         touristService.updateTouristAttraction(touristAttraction);
-        return "update";
+        return "redirect:/attractions";
     }
 
     @DeleteMapping("/delete/{index}")
-    public String deleteTouristAttraction(@PathVariable int index, Model model){
+    public String deleteTouristAttraction(@PathVariable int index, Model model) {
         touristService.deleteTouristAttraction(index);
-        return "delete";
+        return "redirect:/attractions";
     }
 
 }

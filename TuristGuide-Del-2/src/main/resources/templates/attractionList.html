@@ -31,19 +31,24 @@
         <tr th:each="touristAttraction : ${allTouristAttractions}">
             <td th:text="${touristAttraction.getName()}"/>
             <td th:text="${touristAttraction.getDescription()}"/>
-            <td> <em> placeholder: by </em> </td>
-            <td> <em> placeholder: tags (knap og link)</em> </td>
+            <td> <em> placeholder: city </em> </td>
+
+            <td>
+                <a th:href = "@{/attractions/{name} (name= ${touristAttraction.getName()})}"> tags </a>
+                <button>edit</button>
+                <button>delete</button>
+            </td>
         </tr>
 
     </table>
 
+    <form method="POST" action="add.html">
+        <button type="submit">Add Attraction</button>
+    </form>
+
     <footer>
         <p>Contact: 12345678</p>
     </footer>
-
-<form method="POST" action="attractions/add">
-    <button type="submit">Add Attraction</button>
-</form>
 
     </body>
 </html>
