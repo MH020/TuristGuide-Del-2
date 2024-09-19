@@ -34,20 +34,17 @@ public class TouristController {
         model.addAttribute("name",name);
         return "tags";
     }
-    
-    @PostMapping("/add")
-    public String getTouristAttraction(@ModelAttribute(TouristAttraction touristAttraction){
-        touristService.addTouristAttraction(touristAttraction);
-        return "redirect:/attractions";
-    }
 
     @PostMapping("/save")
     public String saveTouristAttractions(@ModelAttribute TouristAttraction touristAttraction){
         touristService.saveTouristAttractions(touristAttraction);
-        return "redirect:/attractions";
+
+    @GetMapping("/add")
+    public String addTouristAttraction(Model model){
+        model.addAttribute("TouristAttraction", new TouristAttraction());
+        model.addAttribute("taglist", TouristService.getTouristAttractionTags());
+      return "add";
     }
-
-
     @PostMapping("/update")
     public String updateTouristAttraction(@ModelAttribute TouristAttraction touristAttraction){
         touristService.updateTouristAttraction(touristAttraction);
