@@ -24,9 +24,6 @@ public class TouristAttraction {
     public void setDescription(String description) {
         this.description = description;
     }
-    public ArrayList<String> getTags() {
-        return tags;
-    }
 
     public TouristAttraction(){
 
