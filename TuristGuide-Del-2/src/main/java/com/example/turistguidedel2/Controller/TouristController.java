@@ -41,12 +41,12 @@ public class TouristController {
         return "redirect:/attractions";
     }
 
-    @PostMapping("/save")
+    /*@PostMapping("/save")
     public String saveTouristAttractions;@ModelAttribute("attractions");
     public String saveTouristAttractions(@ModelAttribute("attractions") List<TouristAttraction> touristAttractions){
         touristService.saveTouristAttractions(touristAttractions);
         return "redirect:/attractions";
-    }
+    }*/
 
 
     @PostMapping("/update")
