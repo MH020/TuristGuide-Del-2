@@ -51,6 +51,11 @@ public class TouristController {
         touristService.updateTouristAttraction(touristAttraction);
         return "redirect:/attractions";
     }
+    @GetMapping("/edit")
+    public String editTouristAttraction(@ModelAttribute String name, Model model){
+        model.addAttribute("touristAttraction", touristService.getTouristAttractionByName(name));
+        return "edit";
+    }
 
     @PostMapping("/delete/{index}")
     public String deleteTouristAttraction(@ModelAttribute int index) {
