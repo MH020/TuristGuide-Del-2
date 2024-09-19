@@ -11,10 +11,12 @@ public class TouristService {
     // This class is a service class that is used to be the middle man between the controller and the database(Repository).
 
     private final TouristRepository repository;
+    private final TouristRepository touristRepository;
 
     //constructor to inject the repository into the service class so it can be used to do the CRUD operations on the database(Repository)
-    public TouristService(TouristRepository repository) {
+    public TouristService(TouristRepository repository, TouristRepository touristRepository) {
         this.repository = repository;
+        this.touristRepository = touristRepository;
     }
     // so I will now implement the CRUD operations in this class that use the repository to do the operations
 
@@ -45,4 +47,9 @@ public class TouristService {
     public List<String> getTouristAttractionTags(String name) {
         return repository.getTags();
     }
+
+    public void saveTouristAttractions(TouristAttraction touristAttraction){
+            touristRepository.saveTouristAttractions(touristAttraction);
+        }
+
 }
