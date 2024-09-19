@@ -66,6 +66,16 @@ public class TouristRepository {
         }
         return null;
     }
+    //get tagsList
+    public ArrayList<String> getTagsList(String name){
+        for (TouristAttraction attraction : touristAttractions) {
+            if (attraction.getName().equals(name)) {
+                return attraction.getTags();
+            }
+        }
+        return null;
+    }
+
 
 
 
