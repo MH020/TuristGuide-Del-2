@@ -36,13 +36,12 @@ public class TouristController {
     }
     
     @PostMapping("/add")
-    public String getTouristAttraction(@RequestBody TouristAttraction touristAttraction, Model model){
+    public String getTouristAttraction(@ModelAttribute("TouristAttraction touristAttraction")){
         touristService.addTouristAttraction(touristAttraction);
         return "redirect:/attractions";
     }
 
     @PostMapping("/save")
-    public String saveTouristAttractions;@ModelAttribute("attractions");
     public String saveTouristAttractions(@ModelAttribute("attractions") List<TouristAttraction> touristAttractions){
         touristService.saveTouristAttractions(touristAttractions);
         return "redirect:/attractions";
@@ -50,13 +49,13 @@ public class TouristController {
 
 
     @PostMapping("/update")
-    public String updateTouristAttraction(@RequestBody TouristAttraction touristAttraction, Model model){
+    public String updateTouristAttraction(@ModelAttribute TouristAttraction touristAttraction){
         touristService.updateTouristAttraction(touristAttraction);
         return "redirect:/attractions";
     }
 
     @DeleteMapping("/delete/{index}")
-    public String deleteTouristAttraction(@PathVariable int index, Model model) {
+    public String deleteTouristAttraction(@ModelAttribute int index) {
         touristService.deleteTouristAttraction(index);
         return "redirect:/attractions";
     }

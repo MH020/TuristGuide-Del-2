@@ -41,4 +41,14 @@ public class TouristService {
         TouristAttraction ta = repository.getTouristAttractionByName(name);
         return ta;
     }
+
+    public void saveTouristAttractions(List<TouristAttraction> touristAttractions){
+        this.touristAttractions.addAll(touristAttractions);
+        for (TouristAttraction attraction : touristAttractions) {
+            if (attraction.getName().equals(name)) {
+                return attraction;
+            }
+        }
+        return null;
+    }
 }
