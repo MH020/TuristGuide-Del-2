@@ -27,7 +27,7 @@
 
             <td>
                 <a th:href = "@{/attractions/{name}/tags(name=${touristAttraction.getName()})}">  <button type = "submit"> Tags </button> </a>
-                <a th:href="@{/attractions/update(name=${touristAttraction.getName()})}"> <button type = "submit"> Update </button> </a>
+                <a th:href="@{/attractions/edit(name=${touristAttraction.getName()})}"> <button type = "submit"> Edit </button> </a>
                 <form th:object="${touristAttraction}" method="post" th:action="@{/attractions/{name}/delete(name=${touristAttraction.getName()})}">
                     <button type="submit"> Delete </button>
                 </form>
