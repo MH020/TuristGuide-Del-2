@@ -26,7 +26,7 @@ public class TouristAttraction {
         this.description = description;
     }
 
-//Tom constructor
+    //Tom constructor
     public TouristAttraction() {
     }
 
