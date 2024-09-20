@@ -45,7 +45,7 @@ public class TouristController {
     }
     @GetMapping("/add")
     public String addTouristAttraction(Model model){
-        model.addAttribute("TouristAttraction", new TouristAttraction("", "", "", new ArrayList<>()));
+        model.addAttribute("TouristAttraction", new TouristAttraction();
         model.addAttribute("taglist", touristService.getTouristAttractionTags());
         return "add";
     }
@@ -55,7 +55,7 @@ public class TouristController {
         return "redirect:/attractions";
     }
     @GetMapping("/attractions/{name}/edit")
-    public String editTouristAttraction(@PathVariable String name, Model model){
+    public String editTouristAttraction(@RequestParam String name, Model model){
         model.addAttribute("touristAttraction", touristService.getTouristAttractionByName(name));
         model.addAttribute("taglist", touristService.getTouristAttractionTags());
         return "edit";
