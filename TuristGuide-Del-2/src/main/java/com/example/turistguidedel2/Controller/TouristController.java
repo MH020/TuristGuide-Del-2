@@ -24,6 +24,8 @@ public class TouristController {
         model.addAttribute("allTouristAttractions", attractions);
         return "attractionList";
     }
+
+    //not used.
     @GetMapping("/attractions/{name}")
     public String getTouristAttractionByName(@PathVariable String name, Model model){
         model.addAttribute("name",touristService.getTouristAttractionByName(name).getName());
@@ -32,7 +34,7 @@ public class TouristController {
     @GetMapping("/attractions/{name}/tags")
     public String getTouristAttractionByTags(@PathVariable String name, Model model){
         TouristAttraction attraction = touristService.getTouristAttractionByName(name);
-        model.addAttribute("touristAttraction",attraction);
+        model.addAttribute("name",attraction.getName());
         model.addAttribute("tags",touristService.getTouristAttractionTags(name));
         return "tags";
     }
