@@ -10,7 +10,7 @@
 <body>
 <h1>Update Attraction</h1>
 
-    <form th:action="@{/attractions/update}" th:method="post" th:object="${attraction}" autocomplete="off">
+    <form th:action="@{/attractions/update}" th:method="post" th:object="${attractions}" autocomplete="off">
 
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required> <br>
@@ -27,15 +27,11 @@
                            th:id="${tags}">
                     <label class="form-check-label"
                            th:for="${tags}" th:text="${tag.name}"> </label> <br> </div>
-
-                <button type="submit">Save</button>
     </form>
 
-    <footer class="footer">
-        <form method="get" action="/attractions">
-            <button type="submit">Back to attractions</button>
-        </form>
-    </footer>
+<form method="POST" th:action="@{/attractions/update}">
+    <button type="submit">Update</button>
+</form>
 
 </body>
 </html>

@@ -14,13 +14,11 @@
     <img src="https://t4.ftcdn.net/jpg/00/30/42/27/360_F_30422752_w1SUKUMnnAzhgYSNd01A1oXSYncJizkU.jpg" alt="Tourist Attraction">
 
     <table>
-
         <tr>
             <th>Attraction</th>
             <th>Description</th>
             <th>City</th>
         </tr>
-
 
         <tr th:each="touristAttraction : ${allTouristAttractions}">
             <td th:text="${touristAttraction.getName()}"/>
@@ -29,16 +27,15 @@
 
             <td>
                 <a th:href = "@{/attractions/{name}/tags(name=${touristAttraction.getName()})}">  <button type = "submit"> Tags </button> </a>
-                <a th:href="@{/attractions/{name}/edit(name=${touristAttraction.getName()})}"> <button type = "submit"> Update </button> </a>
+                <a th:href="@{/attractions/update(name=${touristAttraction.getName()})}"> <button type = "submit"> Update </button> </a>
                 <form th:object="${touristAttraction}" method="post" th:action="@{/attractions/{name}/delete(name=${touristAttraction.getName()})}">
-                    <button type =submit> Delete </button>
+                    <button type="submit"> Delete </button>
                 </form>
             </td>
         </tr>
-
     </table>
 
-    <form method="get" action="/attractions/add">
+    <form method="get" th:action="@{/attractions/add}">
         <button type="submit">Add Attraction</button>
     </form>
 
