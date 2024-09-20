@@ -46,7 +46,7 @@ public class TouristController {
     @GetMapping("/attractions/add")
     public String addTouristAttraction(Model model){
         model.addAttribute("TouristAttraction", new TouristAttraction("", "", "", new ArrayList<>()));
-      //  model.addAttribute("taglist", touristService.getTouristAttractionTags());
+        model.addAttribute("taglist", touristService.getTouristAttractionTags());
         return "add";
     }
     @PostMapping("/attractions/update")
