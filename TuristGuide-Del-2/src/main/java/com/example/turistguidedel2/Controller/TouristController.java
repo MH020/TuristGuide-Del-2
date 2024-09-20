@@ -4,11 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.example.turistguidedel2.Model.TouristAttraction;
+
+import java.util.ArrayList;
 import java.util.List;
 
 
 @Controller
-@RequestMapping ("/attractions")
 public class TouristController {
     // This class is a controller class
     private final TouristService touristService;
@@ -17,7 +18,7 @@ public class TouristController {
         this.touristService = touristService;
     }
 
-    @GetMapping
+    @GetMapping("/attractions")
     public String getAllTouristAttractions(Model model){ //ResponseEntity<List<TouristAttraction>> getAllTouristAttractions(){
         List<TouristAttraction> attractions = touristService.getAllTouristAttractions();
         model.addAttribute("allTouristAttractions", attractions);
@@ -30,8 +31,9 @@ public class TouristController {
     }
     @GetMapping("/{name}/tags")
     public String getTouristAttractionByTags(@PathVariable String name, Model model){
-        model.addAttribute("tags",touristService.getTouristAttractionByName(name));
-        model.addAttribute("name",name);
+        TouristAttraction attraction = touristService.getTouristAttractionByName(name);
+        model.addAttribute("touristAttraction",attraction);
+        model.addAttribute("tags", attraction.getTags());
         return "tags";
     }
 
@@ -42,7 +44,7 @@ public class TouristController {
     }
     @GetMapping("/add")
     public String addTouristAttraction(Model model){
-        model.addAttribute("TouristAttraction", new TouristAttraction());
+        model.addAttribute("TouristAttraction", new TouristAttraction("", "", "", new ArrayList<>()));
         model.addAttribute("taglist", touristService.getTouristAttractionTags());
         return "add";
     }

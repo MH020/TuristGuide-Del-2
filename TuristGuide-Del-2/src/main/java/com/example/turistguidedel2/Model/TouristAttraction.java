@@ -25,8 +25,8 @@ public class TouristAttraction {
         this.description = description;
     }
 
-    public TouristAttraction(){
-
+    public ArrayList<String> getTags() {
+        return tags;
     }
 
     //constructor
