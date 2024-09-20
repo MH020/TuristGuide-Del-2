@@ -21,18 +21,18 @@
                 <label for="city">City:</label>
                 <input type="text" id="city" name="city" value="" readonly><br><br>
 
-                <div th:each="tag : ${tags}">
+                <div th:each="tags : ${tags}">
                     <input type="checkbox"
-                           th:field="*{tags}" th:value="${tag}"
-                           th:id="${tag}">
+                           th:field="*{tags}" th:value="${tags}"
+                           th:id="${tags}">
                     <label class="form-check-label"
-                           th:for="${tag}" th:text="${tag.name}"> </label> <br> </div>
+                           th:for="${tags}" th:text="${tag.name}"> </label> <br> </div>
 
                 <button type="submit">Save</button>
     </form>
 
     <footer class="footer">
-        <form method="get" action="attractionList.html">
+        <form method="get" action="/attractions">
             <button type="submit">Back to attractions</button>
         </form>
     </footer>

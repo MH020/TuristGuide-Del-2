@@ -8,14 +8,16 @@
 <h1>Tags</h1>
 <h2 th:text="${attractionName}"></h2>
 
-<div th:each="att : ${attractions}">
+
+
+<!--<div th:each="att : ${attractions}">
     <p th:if="${att.getName() == attractionName}" th:text="${att.getTags()}"></p>
-</div>
+</div>-->
 
 <!--<p th:if="${attraction.getName() == attractionName}" th:text="${attraction.getTags()}"></p>    -->
 
 <footer class="footer">
-    <form method="get" action="attractionList.html">
+    <form method="get" action="/attractions">
         <button type="submit">Back to attractions</button>
     </form>
 </footer>

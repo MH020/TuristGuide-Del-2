@@ -17,19 +17,19 @@ public class TouristController {
     public TouristController(TouristService touristService) {
         this.touristService = touristService;
     }
-
+    //homepage. Displays all attractions and has links to other endpoints.
     @GetMapping("/attractions")
-    public String getAllTouristAttractions(Model model){ //ResponseEntity<List<TouristAttraction>> getAllTouristAttractions(){
+    public String getAllTouristAttractions(Model model){
         List<TouristAttraction> attractions = touristService.getAllTouristAttractions();
         model.addAttribute("allTouristAttractions", attractions);
         return "attractionList";
     }
-    @GetMapping("/{name}")
+    @GetMapping("/attractions/{name}")
     public String getTouristAttractionByName(@PathVariable String name, Model model){
-        model.addAttribute("tourisAttractionName",touristService.getTouristAttractionByName(name).getName());
-        return "test";
+        model.addAttribute("name",touristService.getTouristAttractionByName(name).getName());
+        return "name"; //placeholder name maybe?
     }
-    @GetMapping("/{name}/tags")
+    @GetMapping("/attractions/{name}/tags")
     public String getTouristAttractionByTags(@PathVariable String name, Model model){
         TouristAttraction attraction = touristService.getTouristAttractionByName(name);
         model.addAttribute("touristAttraction",attraction);
@@ -37,31 +37,32 @@ public class TouristController {
         return "tags";
     }
 
-    @PostMapping("/save")
+    @PostMapping("/attractions/save")
     public String saveTouristAttractions(@ModelAttribute TouristAttraction touristAttraction) {
         touristService.saveTouristAttractions(touristAttraction);
         return "redirect:/attractions";
     }
-    @GetMapping("/add")
+    @GetMapping("/attractions/add")
     public String addTouristAttraction(Model model){
         model.addAttribute("TouristAttraction", new TouristAttraction("", "", "", new ArrayList<>()));
         model.addAttribute("taglist", touristService.getTouristAttractionTags());
         return "add";
     }
-    @PostMapping("/update")
+    @PostMapping("/attractions/update")
     public String updateTouristAttraction(@ModelAttribute TouristAttraction touristAttraction){
         touristService.updateTouristAttraction(touristAttraction);
         return "redirect:/attractions";
     }
-    @GetMapping("/edit")
-    public String editTouristAttraction(@ModelAttribute String name, Model model){
+    @GetMapping("/attractions/{name}/edit")
+    public String editTouristAttraction(@PathVariable String name, Model model){
         model.addAttribute("touristAttraction", touristService.getTouristAttractionByName(name));
         return "edit";
     }
 
-    @PostMapping("/delete/{index}")
-    public String deleteTouristAttraction(@ModelAttribute int index) {
-        touristService.deleteTouristAttraction(index);
+
+    @PostMapping("/attractions/{name}/delete")
+    public String deleteTouristAttraction(@ModelAttribute TouristAttraction touristAttraction) {
+        touristService.deleteTouristAttraction(touristAttraction.getName());
         return "redirect:/attractions";
     }
 //still up to date

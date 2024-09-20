@@ -52,7 +52,8 @@ public class TouristRepository {
         }
     }
     //delete. simply remove the object at the index given
-    public void deleteTouristAttraction(int index){
+    public void deleteTouristAttraction(String name){
+        int index = touristAttractions.indexOf(getTouristAttractionByName(name));
         if (index < 0 || index >= touristAttractions.size()) {
             throw new IllegalArgumentException("Index out of bounds");
         }
@@ -65,7 +66,9 @@ public class TouristRepository {
                 return attraction;
             }
         }
-        return null;
+
+        System.out.println("name is null");
+        return new TouristAttraction("null", "null", "null", new ArrayList<String>());
     }
     //get tagsList
     public ArrayList<String> getTags() {
