@@ -5,6 +5,7 @@
     <title>Add Attraction</title>
     <link th:href="@{/style.css}" rel="stylesheet">
 </head>
+
 <body>
 <h1>Add Attraction</h1>
 
@@ -24,13 +25,6 @@
         <input type="checkbox" th:field="*{tags}" th:value="${tag}" th:text="${tag}">
         <label th:for="${tag}"> </label> <br>
     </div>
-
-   <!-- <div th:each="tag : ${tags}">
-        <label>
-            <input type="checkbox" th:value="${tag}" th:field="*{tags}" th:checked="${attraction.tags.contains(tag)}"/>
-            <span th:text="${tag}"> </span> <br>
-        </label>
-    </div> -->
 
     <button type="submit">Save</button>
 </form>
