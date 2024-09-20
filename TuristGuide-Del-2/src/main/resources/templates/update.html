@@ -10,23 +10,23 @@
 <body>
 <h1>Update Attraction</h1>
 
-    <form th:action="@{/attractions/update}" th:method="post" th:object="${attractions}" autocomplete="off">
+    <form th:action="@{/attractions/update}" th:method="post" th:object="${touristAttraction}" autocomplete="off">
 
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required> <br>
+                <input type="text" id="name" name="name" readonly> <br>
 
                 <label for="description">Description:</label>
                 <input type="text" id="description" name="description"> <br>
 
                 <label for="city">City:</label>
-                <input type="text" id="city" name="city" value="" readonly><br><br>
+                <input type="text" id="city" name="city"> <br>
 
-                <div th:each="tags : ${tags}">
-                    <input type="checkbox"
-                           th:field="*{tags}" th:value="${tags}"
-                           th:id="${tags}">
-                    <label class="form-check-label"
-                           th:for="${tags}" th:text="${tag.name}"> </label> <br> </div>
+                <div th:each="tag : ${tags}">
+                    <label>
+                    <input type="checkbox" th:value="${tag}" th:field="*{tags}" th:checked="${attraction.tags.contains(tag)}"/>
+                        <span th:text="${tag}"> </span> <br>
+                    </label>
+                </div>
     </form>
 
 <form method="POST" th:action="@{/attractions/update}">
