@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.example.turistguidedel2.Model.TouristAttraction;
+
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -36,12 +38,13 @@ public class TouristController {
 
     @PostMapping("/attractions/save")
     public String saveTouristAttractions(@ModelAttribute TouristAttraction touristAttraction) {
+        List<String> selectedTags = touristAttraction.getTags();
         touristService.saveTouristAttractions(touristAttraction);
         return "redirect:/attractions";
     }
-    @GetMapping("/attractions/add")
+    @GetMapping("/add")
     public String addTouristAttraction(Model model){
-        model.addAttribute("TouristAttraction", new TouristAttraction());
+        model.addAttribute("TouristAttraction", new TouristAttraction("", "", "", new ArrayList<>()));
         model.addAttribute("taglist", touristService.getTouristAttractionTags());
         return "add";
     }

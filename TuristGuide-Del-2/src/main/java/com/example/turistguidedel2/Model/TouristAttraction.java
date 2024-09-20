@@ -6,7 +6,7 @@ public class TouristAttraction {
     private String name;
     private String description;
     private String city;
-    private ArrayList<String> tags ;
+    private ArrayList<String> tags;
 
     //getters and setters
     public String getName() {
@@ -25,8 +25,8 @@ public class TouristAttraction {
         this.description = description;
     }
 
-    public TouristAttraction(){
-
+    public ArrayList<String> getTags() {
+        return tags;
     }
 
     //constructor

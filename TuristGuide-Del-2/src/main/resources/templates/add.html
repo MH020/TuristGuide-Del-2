@@ -10,7 +10,7 @@
 <body>
 <h1>Add Attraction</h1>
 
-    <form th:action="@{/attractions/save}">
+    <form th:action="@{/attractions/save}" th:object="${attraction}">
 
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required> <br>
@@ -24,12 +24,13 @@
                     <option th:each="type : ${city}" th:value="city" th:text="${type.displayName}">City</option>
                 </select>
 
-                <div th:each="tags : ${tags}">
+                <div th:each="tag : ${taglist}">
                     <input type="checkbox"
-                           th:field="*{tags}" th:value="${tags}"
-                           th:id="${tags}">
+                           th:field="*{tags}" th:value="${tag}"
+                           th:text="${tag}">
                     <label class="form-check-label"
-                           th:for="${tags}" > </label> <br> </div>
+                           th:for="${tags}"> </label> <br>
+                </div>
 
             <button type="submit">Save</button>
     </form>
