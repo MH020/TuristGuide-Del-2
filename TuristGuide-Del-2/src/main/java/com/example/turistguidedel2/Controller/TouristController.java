@@ -39,11 +39,11 @@ public class TouristController {
 
     @PostMapping("/attractions/save")
     public String saveTouristAttractions(@ModelAttribute TouristAttraction touristAttraction) {
-        List<String> selectedTags = touristAttraction.getTags();
         touristService.saveTouristAttractions(touristAttraction);
         return "redirect:/attractions";
     }
-    @GetMapping("/add")
+
+    @GetMapping("/attractions/add")
     public String addTouristAttraction(Model model){
         model.addAttribute("TouristAttraction", new TouristAttraction("", "", "", new ArrayList<>()));
         model.addAttribute("taglist", touristService.getTouristAttractionTags());

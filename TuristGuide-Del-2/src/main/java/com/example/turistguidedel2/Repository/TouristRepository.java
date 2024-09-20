@@ -72,7 +72,7 @@ public class TouristRepository {
     }
     //get tagsList
     public ArrayList<String> getTags() {
-        return tags;
+        return new ArrayList<>(tags);
     }
 
 

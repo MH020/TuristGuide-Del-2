@@ -42,4 +42,7 @@ public class TouristAttraction {
     public String getCity(){
         return city;
     }
+    public void setTags(ArrayList<String> tags){
+        this.tags = tags;
+    }
 }

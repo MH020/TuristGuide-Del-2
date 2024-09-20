@@ -1,41 +1,32 @@
 <!DOCTYPE html>
-<!--suppress ALL -->
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
     <title>Add Attraction</title>
-    <link th:href= "@{/style.css}" rel="stylesheet">
+    <link th:href="@{/style.css}" rel="stylesheet">
 </head>
 <body>
 <h1>Add Attraction</h1>
 
-    <form method="POST" th:action="@{/attractions/save}" th:object="${attraction}">
+<form method="POST" th:action="@{/attractions/save}" th:object="${TouristAttraction}">
+    <label for="name">Name:</label>
+    <input type="text" id="name" th:field="*{name}" required> <br>
 
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required> <br>
+    <label for="description">Description:</label>
+    <input type="text" id="description" th:field="*{description}"> <br>
 
-                <label for="description">Description:</label>
-                <input type="text" id="description" name="description"> <br>
+    <label for="city">City:</label>
+    <select id="city" th:field="*{city}">
+        <option th:each="type : ${city}" th:value="${type}" th:text="${type.displayName}">City</option>
+    </select>
 
-                <label for="city">City:</label>
+    <div th:each="tag : ${taglist}">
+        <input type="checkbox" th:field="*{tags}" th:value="${tag}" th:text="${tag}">
+        <label th:for="${tag}"> </label> <br>
+    </div>
 
-                <select id="city" name="city" th:field="*{city}">
-                    <option th:each="type : ${city}" th:value="city" th:text="${type.displayName}">City</option>
-                </select>
-
-                <div th:each="tag : ${taglist}">
-                    <input type="checkbox"
-                           th:field="*{tags}" th:value="${tag}"
-                           th:text="${tag}">
-                    <label class="form-check-label"
-                           th:for="${tags}"> </label> <br>
-                </div>
-    </form>
-
-        <form method="POST" th:action="@{/attractions/save}">
-            <button type="submit">Save</button>
-        </form>
+    <button type="submit">Save</button>
+</form>
 
 </body>
 </html>
