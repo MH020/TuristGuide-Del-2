@@ -38,7 +38,7 @@ public class TouristAttraction {
         this.tags = tags;
     }
 
-    public List<String> getTags(){
+    public ArrayList<String> getTags(){
         return tags;
     }
 
