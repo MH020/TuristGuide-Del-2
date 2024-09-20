@@ -71,8 +71,8 @@ public class TouristRepository {
         return new TouristAttraction("null", "null", "null", new ArrayList<String>());
     }
     //get tagsList
-    public ArrayList<String> getTags() {
-        return new ArrayList<>(tags);
+    public ArrayList<String> getTags(String name) {
+        return getTouristAttractionByName(name).getTags();
     }
 
 
