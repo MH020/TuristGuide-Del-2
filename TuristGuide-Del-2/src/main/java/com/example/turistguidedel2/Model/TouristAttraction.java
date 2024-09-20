@@ -26,9 +26,6 @@ public class TouristAttraction {
         this.description = description;
     }
 
-    public ArrayList<String> getTags() {
-        return tags;
-    }
 
     //constructor
     public TouristAttraction(String name, String description, String city, ArrayList<String> tags) {
