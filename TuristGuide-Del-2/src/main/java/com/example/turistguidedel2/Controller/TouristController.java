@@ -67,11 +67,5 @@ public String deleteTouristAttraction(@PathVariable String name) {
     return "redirect:/attractions";
 }
 
-//@PostMapping("/attractions/{name}/delete")
-  //      public String deleteTouristAttraction(@PathVariable TouristAttraction touristAttraction) {
-    //    touristService.deleteTouristAttraction(touristAttraction.getName());
-      //  return "redirect:/attractions";
-    //}
-//still up to date
 }
 
