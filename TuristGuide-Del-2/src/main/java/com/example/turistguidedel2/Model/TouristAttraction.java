@@ -26,6 +26,9 @@ public class TouristAttraction {
         this.description = description;
     }
 
+//Tom constructor
+    public TouristAttraction() {
+    }
 
     //constructor
     public TouristAttraction(String name, String description, String city, ArrayList<String> tags) {
