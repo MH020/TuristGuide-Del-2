@@ -33,7 +33,7 @@ public class TouristController {
     public String getTouristAttractionByTags(@PathVariable String name, Model model){
         TouristAttraction attraction = touristService.getTouristAttractionByName(name);
         model.addAttribute("touristAttraction",attraction);
-        model.addAttribute("tags",touristService.getTouristAttractionTags());
+        model.addAttribute("tags",touristService.getTouristAttractionTags(name));
         return "tags";
     }
 
@@ -67,11 +67,5 @@ public String deleteTouristAttraction(@PathVariable String name) {
     return "redirect:/attractions";
 }
 
-//@PostMapping("/attractions/{name}/delete")
-  //      public String deleteTouristAttraction(@PathVariable TouristAttraction touristAttraction) {
-    //    touristService.deleteTouristAttraction(touristAttraction.getName());
-      //  return "redirect:/attractions";
-    //}
-//still up to date
 }
 

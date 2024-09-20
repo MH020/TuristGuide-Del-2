@@ -5,16 +5,18 @@
     <title>Tags</title>
 </head>
 <body>
-<h1>Tags</h1>
-<h2 th:text="${attractionName}"></h2>
+<h1 th:text="${attractionName}"/>
 
+<table>
+    <tr>
+        <th>Tags</th>
+    </tr>
 
+    <tr th:each="tagItem : ${tags}">
+        <td th:text="${tagItem}"/>
 
-<!--<div th:each="att : ${attractions}">
-    <p th:if="${att.getName() == attractionName}" th:text="${att.getTags()}"></p>
-</div>-->
-
-<!--<p th:if="${attraction.getName() == attractionName}" th:text="${attraction.getTags()}"></p>    -->
+    </tr>
+</table>
 
 <footer class="footer">
     <form method="get" action="/attractions">
