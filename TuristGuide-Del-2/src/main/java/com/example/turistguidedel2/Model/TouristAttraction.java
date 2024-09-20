@@ -1,6 +1,7 @@
 package com.example.turistguidedel2.Model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TouristAttraction {
     private String name;
@@ -25,8 +26,8 @@ public class TouristAttraction {
         this.description = description;
     }
 
-    public TouristAttraction(){
-
+    //Tom constructor
+    public TouristAttraction() {
     }
 
     //constructor
@@ -34,6 +35,17 @@ public class TouristAttraction {
         this.name = name;
         this.description = description;
         this.city = city;
+        this.tags = tags;
+    }
+
+    public ArrayList<String> getTags(){
+        return tags;
+    }
+
+    public String getCity(){
+        return city;
+    }
+    public void setTags(ArrayList<String> tags){
         this.tags = tags;
     }
 }

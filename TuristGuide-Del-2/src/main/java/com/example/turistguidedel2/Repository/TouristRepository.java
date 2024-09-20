@@ -23,13 +23,13 @@ public class TouristRepository {
         tags.add("Culture");
         tags.add("Sightseeing");
         tags.add("Nature");
-        TouristAttraction attraction1 = new TouristAttraction("The Louvre", "The Louvre is the world's largest art museum and a historic monument in Paris, France.", "Paris", tags);
+        TouristAttraction attraction1 = new TouristAttraction("ARoS", "Art museum.", "Aarhus", tags);
         touristAttractions.add(attraction1);
-        TouristAttraction attraction2 = new TouristAttraction("Eiffel Tower", "The Eiffel Tower is a wrought-iron lattice tower on the Champ de Mars in Paris, France.", "Paris", tags);
+        TouristAttraction attraction2 = new TouristAttraction("Bakken", "The oldest amusement park in the world.", "Klampenborg", tags);
         touristAttractions.add(attraction2);
-        TouristAttraction attraction3 = new TouristAttraction("Big Ben", "Big Ben is the nickname for the Great Bell of the clock at the north end of the Palace of Westminster in London, England.", "London", tags);
+        TouristAttraction attraction3 = new TouristAttraction("Rundetårn", "Europe's oldest observatory.", "Copenhagen", tags);
         touristAttractions.add(attraction3);
-        TouristAttraction attraction4 = new TouristAttraction("Tivoli", "test.", "London", tags);
+        TouristAttraction attraction4 = new TouristAttraction("Tivoli Gardens", "The 2nd oldest amusement park in the world.", "Copenhagen", tags);
         touristAttractions.add(attraction4);
     }
 
@@ -52,7 +52,8 @@ public class TouristRepository {
         }
     }
     //delete. simply remove the object at the index given
-    public void deleteTouristAttraction(int index){
+    public void deleteTouristAttraction(String name){
+        int index = touristAttractions.indexOf(getTouristAttractionByName(name));
         if (index < 0 || index >= touristAttractions.size()) {
             throw new IllegalArgumentException("Index out of bounds");
         }
@@ -65,18 +66,22 @@ public class TouristRepository {
                 return attraction;
             }
         }
-        return null;
+        return new TouristAttraction("null", "null", "null", new ArrayList<String>());
     }
     //get tagsList
-    public ArrayList<String> getTags() {
-        return tags;
+    public ArrayList<String> getallTags() {
+        return new ArrayList<>(tags);
+    }
+
+    public ArrayList<String> getTags(String name) {
+        return getTouristAttractionByName(name).getTags();
     }
 
 
-public void saveTouristAttractions(TouristAttraction touristAttraction){
-    touristAttractions.add(touristAttraction);
-
+    public void saveTouristAttractions(TouristAttraction touristAttraction){
+        touristAttractions.add(touristAttraction);
 }
+
 
 }
 

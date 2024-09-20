@@ -14,26 +14,34 @@
     <img src="https://t4.ftcdn.net/jpg/00/30/42/27/360_F_30422752_w1SUKUMnnAzhgYSNd01A1oXSYncJizkU.jpg" alt="Tourist Attraction">
 
     <table>
-        <th>Attraction</th>
-        <th>Description</th>
-        <th>City</th>
+        <tr>
+            <th>Attraction</th>
+            <th>Description</th>
+            <th>City</th>
+        </tr>
 
         <tr th:each="touristAttraction : ${allTouristAttractions}">
             <td th:text="${touristAttraction.getName()}"/>
             <td th:text="${touristAttraction.getDescription()}"/>
-            <td> <em> placeholder: city </em> </td>
+            <td th:text = "${touristAttraction.getCity()}"/>
 
             <td>
-                <a th:href = "@{/attractions/{name}/tags(name=${touristAttraction.getName()})}"> Tags </a> <br>
+                <a th:href = "@{/attractions/{name}/tags(name=${touristAttraction.getName()})}">  <button type = "submit"> Tags </button> </a>
 
-                <a th:href="@{/attractions/update(name=${touristAttraction.getName()})}">Update</a> <br>
+                <!--<a th:href="@{/attractions/edit(name=${touristAttraction.getName()})}"> <button type = "submit"> Edit </button> </a>-->
 
-                <a th:href="@{/attractions/{name}/edit(name=${touristAttraction.getName()})}">Delete</a> <br>
+                <form method="get" th:action="@{/attractions/{name}/edit}">
+                    <button type="submit">Edit</button>
+                </form>
+
+                <form th:object="${touristAttraction}" method="post" th:action="@{/attractions/{name}/delete(name=${touristAttraction.getName()})}">
+                    <button type="submit"> Delete </button>
+                </form>
             </td>
         </tr>
     </table>
 
-    <form method="get" action="/attractions/add">
+    <form method="get" th:action="@{/attractions/add}">
         <button type="submit">Add Attraction</button>
     </form>
 
