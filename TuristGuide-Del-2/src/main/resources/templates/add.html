@@ -25,6 +25,13 @@
         <label th:for="${tag}"> </label> <br>
     </div>
 
+   <!-- <div th:each="tag : ${tags}">
+        <label>
+            <input type="checkbox" th:value="${tag}" th:field="*{tags}" th:checked="${attraction.tags.contains(tag)}"/>
+            <span th:text="${tag}"> </span> <br>
+        </label>
+    </div> -->
+
     <button type="submit">Save</button>
 </form>
 
