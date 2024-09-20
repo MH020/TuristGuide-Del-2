@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!--suppress ALL -->
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -8,7 +7,7 @@
     <link th:href= "@{/style.css}" rel="stylesheet">
 </head>
 <body>
-<h1>Update Attraction</h1>
+<h1>Edit Attraction</h1>
 
     <form th:action="@{/attractions/update}" th:method="post" th:object="${touristAttraction}" autocomplete="off">
 
@@ -21,16 +20,12 @@
                 <label for="city">City:</label>
                 <input type="text" id="city" name="city"> <br>
 
-                <div th:each="tag : ${tags}">
-                    <label>
-                    <input type="checkbox" th:value="${tag}" th:field="*{tags}" th:checked="${attraction.tags.contains(tag)}"/>
-                        <span th:text="${tag}"> </span> <br>
-                    </label>
-                </div>
-    </form>
+        <div th:each="tag : ${taglist}">
+            <input type="checkbox" th:field="*{tags}" th:value="${tag}" th:text="${tag}">
+            <label th:for="${tag}"> </label> <br>
+        </div>
 
-<form method="POST" th:action="@{/attractions/update}">
-    <button type="submit">Update</button>
+<button type="submit">Update</button>
 </form>
 
 </body>
