@@ -66,20 +66,18 @@ public class TouristRepository {
                 return attraction;
             }
         }
-
-        System.out.println("name is null");
         return new TouristAttraction("null", "null", "null", new ArrayList<String>());
     }
     //get tagsList
-    public ArrayList<String> getTags() {
+    public ArrayList<String> getallTags() {
         return new ArrayList<>(tags);
     }
 
 
-public void saveTouristAttractions(TouristAttraction touristAttraction){
-    touristAttractions.add(touristAttraction);
-
+    public void saveTouristAttractions(TouristAttraction touristAttraction){
+        touristAttractions.add(touristAttraction);
 }
+
 
 }
 
